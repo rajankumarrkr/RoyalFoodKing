@@ -10,6 +10,7 @@ import OrderHistory from './pages/OrderHistory';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import AddFood from './pages/AddFood';
+import Search from './pages/Search';
 
 // Wrapper component to handle conditional layout
 const AppLayout = () => {
@@ -22,6 +23,7 @@ const AppLayout = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/search" element={<Search />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/order-success" element={<OrderSuccess />} />
                 <Route path="/orders" element={<OrderHistory />} />

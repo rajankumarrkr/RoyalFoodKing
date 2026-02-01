@@ -12,7 +12,10 @@ import {
     ChevronRight,
     Clock,
     CheckCircle,
-    Truck
+    Truck,
+    User,
+    MapPin,
+    Phone
 } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -181,17 +184,29 @@ const AdminDashboard = () => {
                         {orders.map(order => (
                             <div key={order._id} className="glass p-6 rounded-3xl border-primary/5">
                                 <div className="flex justify-between items-start mb-4">
-                                    <div>
-                                        <div className="flex items-center gap-2 mb-1">
-                                            <span className="text-white/40 text-xs">#{order._id.slice(-6)}</span>
-                                            <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/5 text-[10px] font-bold uppercase">
+                                    <div className="flex-1">
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <span className="text-white/40 text-[10px] font-mono tracking-tighter">ORDER #{order._id.slice(-6)}</span>
+                                            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 text-[10px] font-black uppercase tracking-wider border border-white/5">
                                                 {getStatusIcon(order.status)}
                                                 {order.status}
                                             </div>
                                         </div>
-                                        <h3 className="font-bold text-lg">{order.customerDetails.name}</h3>
-                                        <p className="text-white/40 text-sm whitespace-pre-line">{order.customerDetails.address}</p>
-                                        <p className="text-primary font-bold mt-1">{order.customerDetails.mobile}</p>
+                                        <h3 className="font-black text-xl text-primary flex items-center gap-2">
+                                            <User className="w-5 h-5 text-white/40" />
+                                            {order.customerDetails.name}
+                                        </h3>
+                                        <div className="flex items-start gap-2 mt-2 bg-white/[0.03] p-3 rounded-2xl border border-white/5">
+                                            <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                                            <p className="text-white/70 text-sm leading-relaxed">{order.customerDetails.address}</p>
+                                        </div>
+                                        <a
+                                            href={`tel:${order.customerDetails.mobile}`}
+                                            className="inline-flex items-center gap-2 text-primary font-black mt-3 hover:scale-105 transition-transform bg-primary/10 px-4 py-2 rounded-xl"
+                                        >
+                                            <Phone className="w-4 h-4" />
+                                            {order.customerDetails.mobile}
+                                        </a>
                                     </div>
                                     <div className="text-right">
                                         <p className="text-2xl font-black">₹{order.totalAmount}</p>

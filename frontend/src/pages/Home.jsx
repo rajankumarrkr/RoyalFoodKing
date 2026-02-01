@@ -79,8 +79,8 @@ const Home = () => {
             </div>
 
             {/* Food Grid */}
-            <div className="px-6">
-                <div className="flex items-center justify-between gap-2 mb-6">
+            <div className="px-4 sm:px-6">
+                <div className="flex items-center justify-between gap-2 mb-6 ml-2">
                     <div className="flex items-center gap-2">
                         <SlidersHorizontal className="text-primary w-4 h-4" />
                         <h2 className="text-lg font-bold">Recommended for you</h2>
@@ -88,13 +88,13 @@ const Home = () => {
                 </div>
 
                 {loading ? (
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                         {[1, 2, 3, 4].map(i => (
-                            <div key={i} className="aspect-[3/4] glass animate-pulse rounded-3xl bg-white/5"></div>
+                            <div key={i} className="aspect-[4/3] glass animate-pulse rounded-2xl bg-white/5"></div>
                         ))}
                     </div>
                 ) : (
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                         {filteredFoods.map(food => (
                             <FoodCard key={food._id} food={food} />
                         ))}
