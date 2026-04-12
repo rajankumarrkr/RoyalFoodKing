@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
+    baseURL: import.meta.env.VITE_API_BASE_URL || 'http://16.171.172.220/api',
 });
 
 // Add admin token to requests if exists
