@@ -15,7 +15,7 @@ app.use("/api/food", foodRoutes);
 app.use("/api/order", orderRoutes);
 
 // Test route
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.send("Royal Food King API is running");
 });
 
